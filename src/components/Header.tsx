@@ -5,7 +5,7 @@ function Header() {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Box sx={{ display: 'flex', flexGrow: 1 }}>
+        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'space-between'}}>
           <Link
             component={RouterLink}
             to="/"
@@ -23,10 +23,25 @@ function Header() {
           >
             Sobre
           </Link>
+          <Link 
+          component={RouterLink}
+          to="/register"
+          color="inherit"
+          underline="none"
+          sx={{ marginLeft:  197}}  
+          >
+            Registro
+          </Link>
+          <Link 
+            component={RouterLink}
+            to="/login" 
+            color="inherit"
+            underline="none"
+            sx={{justifyContent: 'space-between'}}
+          >
+            Login
+          </Link>
         </Box>
-        <Typography variant="h6" component="div">
-          Meu Projeto
-        </Typography>
       </Toolbar>
     </AppBar>
   );
