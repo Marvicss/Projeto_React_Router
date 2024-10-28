@@ -1,7 +1,30 @@
 import Header from '../components/Header';
 import { Container, Box, Typography, TextField, Button, Stack } from '@mui/material';
+import { FormEvent } from 'react';
+import Parse from '../config/parseConfig';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+
+    try {
+      await Parse.User.logIn(email, password);
+      alert("Login realizado com sucesso!");
+
+      navigate("/");
+    } catch (error: any) {
+      console.error("Erro ao fazer login:", error);
+      alert("Erro ao fazer login: " + error.message);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -13,7 +36,6 @@ function Login() {
           width: '100vw', 
           margin: 0,
           marginLeft: '-300px'
-          
         }}
       >
         {/* Parte Esquerda */}
@@ -46,7 +68,7 @@ function Login() {
         >
           <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Typography variant="h5" align="center" color='black' gutterBottom>Login</Typography>
-            <Box component="form" noValidate autoComplete="off" sx={{ mt: 2, width: '100%' }}>
+            <Box component="form" noValidate autoComplete="off" sx={{ mt: 2, width: '100%' }} onSubmit={handleSubmit}>
               <Stack spacing={2}>
                 <TextField
                   required
