@@ -1,17 +1,105 @@
-import { Container, Typography } from '@mui/material';
 import Header from '../components/Header';
-
+import { Container, Box, Typography, TextField, Button, Stack } from '@mui/material';
 
 function Register() {
   return (
-   
-      <Container sx={{marginTop: 8}}>
+    <>
       <Header />
-      <Typography variant="h2">Registro</Typography>
-     
-    </Container>
-    
-  )
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          minHeight: '100vh', 
+          width: '100vw', 
+          margin: 0,
+          marginLeft: '-300px'
+          
+        }}
+      >
+        {/* Parte Esquerda */}
+        <Box
+          sx={{
+            backgroundColor: '#1A1A8A',
+            color: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '2rem',
+            flex: 1,
+          }}
+        >
+          <Typography variant="h4" gutterBottom>Cadastre-se gratuitamente</Typography>
+          <Typography variant="body1">Descrever algo aqui ou não</Typography>
+        </Box>
+
+        {/* Parte Direita */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+            backgroundColor: 'white',
+            padding: '2rem',
+          }}
+        >
+          <Container maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography variant="h5" align="center" color='black' gutterBottom>Cadastre-se</Typography>
+            <Box component="form" noValidate autoComplete="off" sx={{ mt: 2, width: '100%' }}>
+              <Stack spacing={2}>
+                <TextField
+                  required
+                  fullWidth
+                  id="name"
+                  label="Nome"
+                  name="name"
+                  variant="outlined"
+                />
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  name="email"
+                  autoComplete="email"
+                  variant="outlined"
+                />
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Senha"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  variant="outlined"
+                />
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Repetir senha"
+                  type="password"
+                  id="confirmPassword"
+                  variant="outlined"
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Entrar
+                </Button>
+              </Stack>
+            </Box>
+          </Container>
+        </Box>
+      </Box>
+    </>
+  );
 }
 
-export default Register
+export default Register;
