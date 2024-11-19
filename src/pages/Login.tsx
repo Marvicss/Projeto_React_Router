@@ -41,7 +41,7 @@ function Login() {
         {/* Parte Esquerda */}
         <Box
           sx={{
-            backgroundColor: '#1A1A8A',
+            backgroundColor: '#005988',
             color: 'white',
             display: 'flex',
             flexDirection: 'column',
