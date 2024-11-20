@@ -28,3 +28,12 @@ span {
     font-size: 1.125rem;
     border-radius: 10px;
 }
+
+strong {
+    color: #005988;
+}
+
+p {
+    color: #8A8A8A;
+    font-size: 20px;
+}
