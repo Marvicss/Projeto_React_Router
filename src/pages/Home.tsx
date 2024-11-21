@@ -262,11 +262,11 @@ const Home: React.FC = () => {
           Empresas Parceiras
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center", gap: 4, flexWrap: "wrap" }}>
-          <img src="/walmart-logo.png" alt="Walmart" style={{ width: "120px", height: "auto" }} />
-          <img src="/cisco-logo.png" alt="Cisco" style={{ width: "120px", height: "auto" }} />
-          <img src="/volvo-logo.png" alt="Volvo" style={{ width: "120px", height: "auto" }} />
-          <img src="/deloitte-logo.png" alt="Deloitte" style={{ width: "120px", height: "auto" }} />
-          <img src="/okta-logo.png" alt="Okta" style={{ width: "120px", height: "auto" }} />
+          <img src="/walmart-logo.png" alt="Walmart" style={{ width: "8rem", height: "8rem" }} />
+          <img src="/cisco-logo.png" alt="Cisco" style={{ width: "20rem", height: "8rem" }} />
+          <img src="/volvo-logo.png" alt="Volvo" style={{ width: "8rem", height: "8rem" }} />
+          <img src="/deloitte-logo.png" alt="Deloitte" style={{ width: "20rem", height: "8rem" }} />
+          <img src="/okta-logo.png" alt="Okta" style={{ width: "8rem", height: "8rem" }} />
         </Box>
       </Box>
 
