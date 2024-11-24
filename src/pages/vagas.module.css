@@ -1,0 +1,158 @@
+/* Importando a fonte Abril Fatface */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* Container principal */
+.vagasContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Abril Fatface', sans-serif;  /* Aplicando Abril Fatface */
+}
+
+/* Cabeçalho */
+.vagasHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.vagasHeader h1 {
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+
+/* Link "Mostrar todas as vagas" */
+.verTodas {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;  /* Usando a fonte padrão para o link */
+}
+
+.verTodas:hover {
+  text-decoration: underline;
+}
+
+/* Grid de cards */
+.vagasGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card de vaga */
+.vagaCard {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.vagaCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card de destaque */
+.vagaCard.destaque {
+  background: #004d80;
+  color: #fff;
+}
+
+.vagaCard.destaque h3,
+.vagaCard.destaque p {
+  color: #fff;
+}
+
+/* Adicionando estilo para os ícones clicáveis */
+.iconContainer {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #666;
+  cursor: pointer; /* Adicionando cursor pointer para indicar interatividade */
+}
+
+.iconContainer:hover {
+  color: #007bff; /* Mudando a cor ao passar o mouse por cima para indicar que pode ser clicado */
+}
+
+.vagaCard h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.vagaCard p {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: Arial, sans-serif;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #003d66;
+    color: #fff;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    width: 100%; /* Garante que o rodapé ocupe toda a largura da página */
+    margin-top: 50px;
+    position: relative; /* Mantém o rodapé fixado no fluxo do layout */
+    left: 0; /* Alinha à esquerda */
+}
+
+.rodapeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinha as seções à esquerda */
+    max-width: 100%; /* Garante que o conteúdo ocupe toda a largura disponível */
+    margin: 0; /* Remove qualquer margem automática */
+}
+
+.rodapeSection {
+    flex: 1;
+    padding: 15px;
+    min-width: 200px;
+}
+
+.copyRight {
+    text-align: left; /* Alinha o texto de copyright à esquerda */
+    margin-top: 20px;
+    font-size: 0.8rem;
+}
+
+  .rodapeSection {
+    flex: 1;
+    padding: 15px;
+    min-width: 200px;
+  }
+  
+  .rodapeSection h6 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .rodapeSection p,
+  .rodapeSection ul {
+    font-size: 0.9rem;
+    color: #ddd;
+  }
+  
+  .rodapeSection ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .rodapeSection ul li {
+    margin-bottom: 5px;
+  }
+  
+  .rodapeSection ul li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+
+  

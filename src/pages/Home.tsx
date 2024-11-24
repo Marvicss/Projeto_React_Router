@@ -14,7 +14,23 @@ const Home: React.FC = () => {
     </Box>
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
       <Button color="inherit">Home</Button>
-      <Button color="inherit">Vagas</Button>
+      
+      <Link to= "/Vagas"
+       style={{
+        textDecoration: "none",
+        color: "inherit",
+        padding: "8px 16px",
+      borderRadius: "4px",
+      fontWeight: "bold",
+      transition: "box-shadow 0.3s",
+      boxShadow: "none",
+      
+      }}
+      >
+        VAGAS
+        
+      
+      </Link>
       <Button color="inherit">Empresas</Button>
       <Button color="inherit">Contato</Button>
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
