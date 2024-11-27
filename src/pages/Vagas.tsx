@@ -8,10 +8,13 @@ function Vagas() {
 
   return (
     <div className={styles.vagasContainer}>
+      {/* Cabeçalho de Categorias */}
       <div className={styles.vagasHeader}>
-        <h1>Explore as categorias</h1>
-        <a href="#" className={styles.verTodas}>Mostrar todas as vagas &rarr;</a>
+        <h1>Explore as Categorias</h1>
+        <button className={styles.verTodas}>Mostrar todas as vagas &rarr;</button>
       </div>
+
+      {/* Categorias de Vagas */}
       <div className={styles.vagasGrid}>
         <div className={styles.vagaCard} onClick={() => handleIconClick("Design")}>
           <div className={styles.iconContainer}>🎨</div>
@@ -54,18 +57,115 @@ function Vagas() {
           <p>346 vagas disponíveis</p>
         </div>
       </div>
+<br />
+<br />
+<br />
+      {/* Imagem promocional */}
+      <div className={styles.ctaSection}>
+  <img 
+    src="cta.svg" 
+    alt="Descubra mais oportunidades de trabalho" 
+    className={styles.ctaImage} 
+    
+  />
+</div>
+{/* oportunidades em destaque */}
+<br />
+      <div className={styles.oportunidadesDestaque}>
+  <div className={styles.vagasHeader}>
+    <h1>Oportunidades em Destaque</h1>
+    <button className={styles.verTodas}>Mostrar todas as vagas &rarr;</button>
+  </div>
+  <div className={styles.vagasGrid}>
+    {[
+      {
+        title: "Email Marketing",
+        company: "RianV",
+        location: "Recife, Pernambuco",
+        description: "A RianV está procurando um especialista em Email Marketing para ajudar a equipe.",
+        
+        logo: "rianV.svg",
+      },
+      {
+        title: "Brand Designer",
+        company: "Dropbox",
+        location: "San Francisco, US",
+        description: "O Dropbox está procurando um Brand Designer para ajudar na equipe de design.",
+        categories: ["Design", "Negócios"],
+        logo: "dropbox.svg",
+      },
+      {
+        title: "Email Marketing",
+        company: "Pitch",
+        location: "Recife, Pernambuco",
+        description: "Pitch está procurando Gerente de Cliente para se juntar ao marketing.",
+        categories: ["Design", "Negócios"],
+        logo: "pitch.svg",
+      },
+      {
+        title: "Visual Designer",
+        company: "Blinklist",
+        location: "Olinda, Pernambuco",
+        description: "Blinklist está procurando Visual Designer para criar projetos inovadores.",
+        categories: ["Design"],
+        logo: "Blinklist.svg",
+      },
+      {
+        title: "Engenheiro Civil",
+        company: "Clod",
+        location: "Paulista, Pernambuco",
+        description: "A Clod está procurando Engenheiro Civil para nos ajudar com projetos estruturais.",
+        categories: ["Engenharia", "Design"],
+        logo: "clod.svg",
+      },
+      {
+        title: "Lead Designer",
+        company: "Canva",
+        location: "Recife, Pernambuco",
+        description: "O Canva está procurando um Engenheiro Líder para desenvolver novos produtos.",
+        categories: ["Design", "Negócios"],
+        logo: "canva.svg",
+      },
+      {
+        title: "Estrategista de Marca",
+        company: "GoDaddy",
+        location: "Recife, Pernambuco",
+        description: "A GoDaddy está procurando estrategista de marca para ajudar no marketing.",
+        categories: ["Marketing"],
+        logo: "Godaddy.svg",
+      },
+      {
+        title: "Data Analyst",
+        company: "Twitter",
+        location: "São Paulo, São Paulo",
+        description: "O Twitter está procurando Analista de Dados para ajudar na tomada de decisões.",
+        categories: ["Tecnologia"],
+        logo: "twitter.svg",
+      },
+    ].map((vaga, index) => (
+      <div key={index} className={styles.vagaCard}>
+        <div className={styles.iconContainer}>
+          <img src={vaga.logo} alt={`Logo ${vaga.company}`} />
+        </div>
+        <h3>{vaga.title}</h3>
+        <p>{vaga.company} ・ {vaga.location}</p>
+        <p>{vaga.description}</p>
+        <div className={styles.categories}>
+          
+        </div>
+        <span className={styles.contractType}>Integral</span>
+      </div>
+    ))}
+  </div>
+</div>
 
-      {/* receba */}
-        <br></br>
-        <br></br>
-        <br></br>
-     <img src="cta.svg" alt="receba" />
+
       {/* Rodapé */}
       <footer className={styles.rodape}>
         <div className={styles.rodapeContainer}>
           <div className={styles.rodapeSection}>
             <h6>Sobre Nós</h6>
-            <p>A Vaga Certa é uma plataforma de empregos que conecta talentos às melhores oportunidades de forma ágil, confiável e acessível.</p>
+            <p>A Vaga Certa conecta talentos às melhores oportunidades de forma ágil e confiável.</p>
           </div>
           <div className={styles.rodapeSection}>
             <h6>Empresa</h6>
@@ -87,10 +187,8 @@ function Vagas() {
           <div className={styles.rodapeSection}>
             <h6>Contato</h6>
             <p>
-              +55 81 9 9697-3442
-              <br />
-              vagacertape@gmail.com
-              <br />
+              +55 81 9 9697-3442<br />
+              vagacertape@gmail.com<br />
               Recife, Pernambuco
             </p>
           </div>

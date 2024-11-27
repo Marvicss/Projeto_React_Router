@@ -48,6 +48,7 @@
   border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
+  cursor: pointer;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -155,4 +156,19 @@
   }
   
 
+  .ctaSection {
+    text-align: center;
+  }
+  
+  .ctaImage {
+    width: 100%;
+    height: auto;
+    cursor: pointer; /* Mostra que é clicável */
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .ctaImage:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+    filter: brightness(1.2); /* Aumenta o brilho */
+  }
   
