@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './vagas.module.css';
 
 function Vagas() {
-  const handleIconClick = (category: string) => {
+  const handleIconClick: any = (category: string) => {
     alert(`Você clicou em: ${category}`);
   };
 
