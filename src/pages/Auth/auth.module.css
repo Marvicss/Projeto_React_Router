@@ -1,71 +1,85 @@
-.auth-container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .auth-left {
-    background-color: #005988;
-    color: white;
-    width: 50%;
+/* Container comum para as duas páginas */
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+  }
+  
+  /* Parte Esquerda - logo e texto */
+  .leftSection {
+    background-color: #005988;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    padding: 20px;
+    padding: 2rem;
+    flex: 1;
+    margin-top: 4rem;
   }
   
-  .auth-logo {
-    width: 150px;
-    margin-bottom: 20px;
+  /* Logo */
+  .logo {
+    width: 500px;
+    margin-bottom: 2px;
   }
   
-  .auth-right {
-    width: 50%;
+  /* Títulos */
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  .text {
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Parte Direita - Formulário */
+  .rightSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 2rem;
+  }
+  
+  /* Formulário */
+  .formContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 40px;
-  }
-  
-  h2 {
-    color: #005988;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #005988;
-  }
-  
-  input {
+    align-items: center;
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    max-width: 450px;
+    padding: 0 1rem;
   }
   
-  input:focus {
-    outline: none;
-    border-color: #005988;
-    box-shadow: 0 0 5px rgba(0, 89, 136, 0.5);
+  /* Títulos do formulário */
+  .formTitle {
+    font-weight: 500;
   }
   
-  .btn-submit {
-    background-color: #005988;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  /* Subtítulo do formulário */
+  .formSubTitle {
+    margin-bottom: 3rem;
+    color: gray;
+    font-size: 0.9rem;
   }
   
-  .btn-submit:hover {
-    background-color: #004070;
+  /* Stack de inputs */
+  .inputStack {
+    width: 100%;
   }
+  
+  /* Botão de submit */
+  .submitButton {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 50px;
+    padding: 0.8rem;
+  }
+  
   
