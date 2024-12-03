@@ -94,7 +94,7 @@ const Home: React.FC = () => {
             </Typography>
           </Box>
           <Box sx={{ flex: 1 }}>
-            <img src="/hero-image.png" alt="Pessoa sorrindo" style={{ width: "100%", borderRadius: "8px", height: "20%" }} />
+            <img src="/hero-image.png" alt="Colaborador sorrindo" style={{ width: "80%", borderRadius: "8px", height: "20%" }} />
           </Box>
         </Container>
       </Box>
