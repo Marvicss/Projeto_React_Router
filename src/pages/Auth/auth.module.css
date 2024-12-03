@@ -1,7 +1,7 @@
 /* Container comum para as duas páginas */
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     min-height: 100vh;
     width: 100vw;
   }
@@ -81,5 +81,6 @@
     border-radius: 50px;
     padding: 0.8rem;
   }
+  
   
   
