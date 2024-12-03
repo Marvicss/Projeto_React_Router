@@ -5,7 +5,6 @@ import {
   TextField,
   Button,
   Stack,
-  Link,
 } from '@mui/material';
 import { FormEvent } from 'react';
 import Parse from '../config/parseConfig';
@@ -25,11 +24,14 @@ function Login() {
       await Parse.User.logIn(email, password);
       alert('Login realizado com sucesso!');
       navigate('/');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Erro ao fazer login:', error);
       alert('Erro ao fazer login: ' + error.message);
     }
+  };
+
+  const handleForgotPassword = () => {
+    navigate('/forgot-password'); 
   };
 
   return (
@@ -70,88 +72,84 @@ function Login() {
           </Typography>
         </Box>
 
-      
         {/* Parte Direita */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+            backgroundColor: '#f9f9f9',
+            padding: '2rem', // Padding ajustado para melhorar o espaçamento
+          }}
+        >
           <Box
+            component="form"
+            noValidate
+            autoComplete="off"
             sx={{
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
-              flex: 1,
-              backgroundColor: '#f9f9f9',
-              padding: '2rem', // Padding ajustado para melhorar o espaçamento
+              width: '100%',
+              maxWidth: '450px',
+              padding: '0 1rem', // Controle de padding interno
             }}
+            onSubmit={handleSubmit}
           >
-            <Box
-              component="form"
-              noValidate
-              autoComplete="off"
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: '100%',
-                maxWidth: '450px',
-                padding: '0 1rem', // Controle de padding interno
-              }}
-              onSubmit={handleSubmit}
+            <Typography
+              variant="h5"
+              align="center"
+              color="black"
+              gutterBottom
+              sx={{ fontWeight: 500 }}
             >
-              <Typography
-                variant="h5"
-                align="center"
-                color="black"
-                gutterBottom
-                sx={{ fontWeight: 500 }}
+              Faça login na sua conta
+            </Typography>
+            <Typography variant="body2" color="gray" sx={{ mb: 3 }}>
+              Insira seus dados
+            </Typography>
+            <Stack spacing={2} sx={{ width: '100%' }}>
+              <TextField
+                required
+                fullWidth
+                id="email"
+                label="Email"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                variant="outlined"
+              />
+              <TextField
+                required
+                fullWidth
+                name="password"
+                label="Senha"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                variant="outlined"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{ mt: 3, mb: 2, borderRadius: '50px', padding: '0.8rem' }}
               >
-                Faça login na sua conta
-              </Typography>
-              <Typography variant="body2" color="gray" sx={{ mb: 3 }}>
-                Insira seus dados
-              </Typography>
-              <Stack spacing={2} sx={{ width: '100%' }}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                  variant="outlined"
-                />
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Senha"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  variant="outlined"
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  sx={{ mt: 3, mb: 2, borderRadius: '50px', padding: '0.8rem' }}
-                >
-                  Entrar
-                </Button>
-                <Link
-                  href="#"
-                  variant="body2"
-                  color="primary"
-                  underline="hover"
-                  align="center"
-                >
-                  Esqueci minha senha
-                </Link>
-              </Stack>
-            </Box>
+                Entrar
+              </Button>
+              <Button
+                variant="text"
+                color="primary"
+                onClick={handleForgotPassword} // Chamando a função para redirecionar
+                sx={{ textTransform: 'none', fontWeight: 400 }}
+              >
+                Esqueci minha senha
+              </Button>
+            </Stack>
           </Box>
-
-       
+        </Box>
       </Box>
     </>
   );
