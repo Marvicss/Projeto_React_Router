@@ -1,11 +1,11 @@
-import { AppBar, Toolbar, Typography, Link, Box } from '@mui/material';
+import { AppBar, Toolbar, Link, Box } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Header() {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'space-between'}}>
+        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'space-between' }}>
           <Link
             component={RouterLink}
             to="/"
@@ -23,21 +23,21 @@ function Header() {
           >
             Sobre
           </Link>
-          <Link 
-          component={RouterLink}
-          to="/register"
-          color="inherit"
-          underline="none"
-          sx={{ marginLeft:  197}}  
+          <Link
+            component={RouterLink}
+            to="/register"
+            color="inherit"
+            underline="none"
+            sx={{ marginLeft: 197 }}
           >
             Registro
           </Link>
-          <Link 
+          <Link
             component={RouterLink}
-            to="/login" 
+            to="/login"
             color="inherit"
             underline="none"
-            sx={{justifyContent: 'space-between'}}
+            sx={{ justifyContent: 'space-between' }}
           >
             Login
           </Link>

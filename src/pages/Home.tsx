@@ -24,87 +24,104 @@ const Home: React.FC = () => {
 
   return (
     <>
-           {/* Navbar */}
-<AppBar className={styles.nav1} position="static" color="transparent" elevation={0}>
-  <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-    <Box>
-      <img src="/logo.png" alt="Logo" style={{ height: "7rem", width: "10rem" }} />
-    </Box>
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-      <Button color="inherit">Home</Button>
-      
-      <Link to= "/Vagas"
-       style={{
-        textDecoration: "none",
-        color: "inherit",
-        padding: "8px 16px",
-        borderRadius: "4px",
-        fontWeight: "bold",
-        transition: "box-shadow 0.3s",
-        boxShadow: "none",
-      
-      }}
-      >
-        VAGAS
-        
-      
-      </Link>
-      <Button color="inherit">Empresas</Button>
-      <Button color="inherit">Contato</Button>
+      {/* Navbar */}
+      <AppBar className={styles.nav1} position="static" color="transparent" elevation={0}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box>
+            <img src="/logo.png" alt="Logo" style={{ height: "7rem", width: "10rem" }} />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Button color="inherit">Home</Button>
 
-      {/* Verificação de usuário logado */}
-      {user ? (
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              {/* Exemplo de um link de "Sair" (Logout) */}
-              <Button
-                color="inherit"
-                onClick={handleLogout} // A função de logout
-                sx={{ fontWeight: "bold", marginTop: 0.5 }}
-              >
-                Sair
-              </Button>
-            </Box>
+            <Link to="/Vagas"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                fontWeight: "bold",
+                transition: "box-shadow 0.3s",
+                boxShadow: "none",
 
-      ):
-      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-        {/* Link "Entrar" estilizado */}
-        <Link
-          to="/login"
-          style={{
-            marginTop: "20px",
-            textDecoration: "none",
-            backgroundColor: "#005988",
-            color: "#FFFFFF",
-            fontWeight: "bold",
-            padding: "8px 24px",
-            borderRadius: "20px",
-            textAlign: "center",
-            display: "inline-block",
-            transition: "background-color 0.3s",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#003F63")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#005988")}
-        >
-          Entrar
-        </Link>
-        {/* Link "Cadastrar-se" */}
-        <Link
-          to="/register"
-          style={{
-            marginTop: "8px",
-            fontSize: "14px",
-            textDecoration: "none",
-            color: "#005988",
-            fontWeight: "bold",
-          }}
-        >
-          Cadastrar-se
-        </Link>
-      </Box>
-    } 
-    </Box>
-  </Toolbar>
-</AppBar>
+              }}
+            >
+              VAGAS
+
+
+            </Link>
+
+            <Link to="/postar-vaga"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                fontWeight: "bold",
+                transition: "box-shadow 0.3s",
+                boxShadow: "none",
+
+              }}
+            >
+              CRIAR VAGA
+
+
+            </Link>
+            <Button color="inherit">Empresas</Button>
+            <Button color="inherit">Contato</Button>
+
+            {/* Verificação de usuário logado */}
+            {user ? (
+              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                {/* Exemplo de um link de "Sair" (Logout) */}
+                <Button
+                  color="inherit"
+                  onClick={handleLogout} // A função de logout
+                  sx={{ fontWeight: "bold", marginTop: 0.5 }}
+                >
+                  Sair
+                </Button>
+              </Box>
+
+            ) :
+              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                {/* Link "Entrar" estilizado */}
+                <Link
+                  to="/login"
+                  style={{
+                    marginTop: "20px",
+                    textDecoration: "none",
+                    backgroundColor: "#005988",
+                    color: "#FFFFFF",
+                    fontWeight: "bold",
+                    padding: "8px 24px",
+                    borderRadius: "20px",
+                    textAlign: "center",
+                    display: "inline-block",
+                    transition: "background-color 0.3s",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#003F63")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#005988")}
+                >
+                  Entrar
+                </Link>
+                {/* Link "Cadastrar-se" */}
+                <Link
+                  to="/register"
+                  style={{
+                    marginTop: "8px",
+                    fontSize: "14px",
+                    textDecoration: "none",
+                    color: "#005988",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Cadastrar-se
+                </Link>
+              </Box>
+            }
+          </Box>
+        </Toolbar>
+      </AppBar>
 
       {/* Hero Section */}
       <Box sx={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
@@ -133,106 +150,106 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
- {/* Missão, Visão e Valores */}
-<Box sx={{ backgroundColor: "#005988", py: 4, display: "flex", justifyContent: "center" }}>
-  <Container
-    sx={{
-      backgroundColor: "#005988",
-      color: "white",
-      borderRadius: 3,
-      width: "100%", // Ajusta para ocupar todo o espaço permitido pelo Container
-      maxWidth: "900px", // Define a largura máxima desejada
-      padding: 3, // Espaçamento interno
-    }}
-  >
-    <Grid container spacing={3} alignItems="center">
-      {/* Missão */}
-      <Grid item xs={12} sm={4} textAlign="center">
-        <Typography variant="h5" fontWeight="bold" gutterBottom>
-          Missão
-        </Typography>
-        <Typography fontSize="0.95rem" >
-          Conectar talentos a oportunidades, facilitando processos e contribuindo para o sucesso de candidatos e empresas.
-        </Typography>
-      </Grid>
+      {/* Missão, Visão e Valores */}
+      <Box sx={{ backgroundColor: "#005988", py: 4, display: "flex", justifyContent: "center" }}>
+        <Container
+          sx={{
+            backgroundColor: "#005988",
+            color: "white",
+            borderRadius: 3,
+            width: "100%", // Ajusta para ocupar todo o espaço permitido pelo Container
+            maxWidth: "900px", // Define a largura máxima desejada
+            padding: 3, // Espaçamento interno
+          }}
+        >
+          <Grid container spacing={3} alignItems="center">
+            {/* Missão */}
+            <Grid item xs={12} sm={4} textAlign="center">
+              <Typography variant="h5" fontWeight="bold" gutterBottom>
+                Missão
+              </Typography>
+              <Typography fontSize="0.95rem" >
+                Conectar talentos a oportunidades, facilitando processos e contribuindo para o sucesso de candidatos e empresas.
+              </Typography>
+            </Grid>
 
-      {/* Visão */}
-      <Grid item xs={12} sm={4} textAlign="center">
-        <Typography variant="h5" fontWeight="bold" gutterBottom>
-          Visão
-        </Typography>
-        <Typography fontSize="0.95rem">
-          Ser a plataforma de empregos mais confiável e reconhecida, promovendo o crescimento de profissionais e empresas.
-        </Typography>
-      </Grid>
+            {/* Visão */}
+            <Grid item xs={12} sm={4} textAlign="center">
+              <Typography variant="h5" fontWeight="bold" gutterBottom>
+                Visão
+              </Typography>
+              <Typography fontSize="0.95rem">
+                Ser a plataforma de empregos mais confiável e reconhecida, promovendo o crescimento de profissionais e empresas.
+              </Typography>
+            </Grid>
 
-      {/* Valores */}
-      <Grid item xs={12} sm={4} textAlign="center">
-        <Typography variant="h5" fontWeight="bold" gutterBottom>
-          Valores
-        </Typography>
-        <Typography fontSize="0.95rem" component="div">
-          • Qualidade <br />• Inovação <br />• Ética e Transparência <br />• Sucesso do cliente
-        </Typography>
-      </Grid>
-    </Grid>
-  </Container>
-</Box>
+            {/* Valores */}
+            <Grid item xs={12} sm={4} textAlign="center">
+              <Typography variant="h5" fontWeight="bold" gutterBottom>
+                Valores
+              </Typography>
+              <Typography fontSize="0.95rem" component="div">
+                • Qualidade <br />• Inovação <br />• Ética e Transparência <br />• Sucesso do cliente
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
       {/* Vagas em Destaque */}
-<Box sx={{ backgroundColor: "#F9F9F9", py: 6 }}>
-  <Container maxWidth="lg">
-    <Box sx={{ textAlign: "center", mb: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Vagas em Destaque
-      </Typography>
-      <Typography variant="body1" color="text.secondary">
-        Veja as vagas que mais fazem sucesso
-      </Typography>
-    </Box>
-    <Grid container spacing={4}>
-      {[1, 2, 3].map((card) => (
-        <Grid item xs={12} sm={6} md={4} key={card}>
-          <Box
-            sx={{
-              backgroundColor: "#FFFFFF",
-              borderRadius: "8px",
-              overflow: "hidden",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-            }}
-          >
-            <Box
-              component="img"
-              src={`/vaga-${card}.jpg`}
-              alt={`Vaga ${card}`}
-              sx={{
-                width: "100%",
-                height: "140px",
-                objectFit: "cover",
-              }}
-            />
-            <Box sx={{ p: 2, flexGrow: 1 }}>
-              <Typography variant="h6" gutterBottom>
-                Título da Vaga
-              </Typography>
-              <Typography color="text.secondary">Local: Recife</Typography>
-              <Typography color="text.secondary">Tipo: Presencial</Typography>
-            </Box>
-            <Box sx={{ p: 2, textAlign: "center" }}>
-              <Button variant="contained" size="small" sx={{ width: "100%" }}>
-                Candidatar-se
-              </Button>
-            </Box>
+      <Box sx={{ backgroundColor: "#F9F9F9", py: 6 }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: "center", mb: 4 }}>
+            <Typography variant="h4" gutterBottom>
+              Vagas em Destaque
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Veja as vagas que mais fazem sucesso
+            </Typography>
           </Box>
-        </Grid>
-      ))}
-    </Grid>
-  </Container>
-</Box>
-      
+          <Grid container spacing={4}>
+            {[1, 2, 3].map((card) => (
+              <Grid item xs={12} sm={6} md={4} key={card}>
+                <Box
+                  sx={{
+                    backgroundColor: "#FFFFFF",
+                    borderRadius: "8px",
+                    overflow: "hidden",
+                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={`/vaga-${card}.jpg`}
+                    alt={`Vaga ${card}`}
+                    sx={{
+                      width: "100%",
+                      height: "140px",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <Box sx={{ p: 2, flexGrow: 1 }}>
+                    <Typography variant="h6" gutterBottom>
+                      Título da Vaga
+                    </Typography>
+                    <Typography color="text.secondary">Local: Recife</Typography>
+                    <Typography color="text.secondary">Tipo: Presencial</Typography>
+                  </Box>
+                  <Box sx={{ p: 2, textAlign: "center" }}>
+                    <Button variant="contained" size="small" sx={{ width: "100%" }}>
+                      Candidatar-se
+                    </Button>
+                  </Box>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
 
       {/* "Seja Certeiro na Vaga" */}
       <Box sx={{ backgroundColor: "#FDF8EE", py: 8 }}>
@@ -260,7 +277,7 @@ const Home: React.FC = () => {
           <Typography variant="h4" align="center" gutterBottom>
             <h3>O Que os Contratados Dizem</h3>
             <p >O que as pessoas que foram contratadas <br />
-            estão comentando</p>
+              estão comentando</p>
           </Typography>
           <Grid container spacing={4}>
             {[1, 2, 3].map((testimonial) => (
@@ -321,8 +338,8 @@ const Home: React.FC = () => {
       </Box>
 
 
-        {/* Inscrição */}
-        <Box sx={{ py: 6, backgroundColor: "#005988", color: "#FFF", textAlign: "center" }}>
+      {/* Inscrição */}
+      <Box sx={{ py: 6, backgroundColor: "#005988", color: "#FFF", textAlign: "center" }}>
         <Typography variant="h5" gutterBottom>
           Inscreva-se e receba diversas vagas
         </Typography>
@@ -339,58 +356,58 @@ const Home: React.FC = () => {
         </Box>
       </Box>
 
-            
-        {/* Rodapé */}
-<Box sx={{ py: 6, backgroundColor: "#005988", color: "#FFF", marginTop: "50px" }}>
-  <Container maxWidth="lg">
-    <Grid container spacing={4}>
-      <Grid item xs={12} sm={6} md={3}>
-        <Typography variant="h6" gutterBottom sx={{ color: "#FFF" }}>
-          Sobre Nós
-        </Typography>
-        <Typography variant="body2" sx={{ color: "#FFF" }}>
-          A Vaga Certa é uma plataforma de empregos que conecta talentos às melhores oportunidades de forma ágil, confiável e acessível.
-        </Typography>
-      </Grid>
-      <Grid item xs={12} sm={6} md={3}>
-        <Typography variant="h6" gutterBottom>
-          Empresa
-        </Typography>
-        <ul style={{ listStyleType: "none", padding: 0 }}>
-          <li>Sobre Nós</li>
-          <li>Como Funciona?</li>
-          <li>Principais Vagas</li>
-          <li>Serviços</li>
-        </ul>
-      </Grid>
-      <Grid item xs={12} sm={6} md={3}>
-        <Typography variant="h6" gutterBottom>
-          Vagas
-        </Typography>
-        <ul style={{ listStyleType: "none", padding: 0 }}>
-          <li>Categorias de Vagas</li>
-          <li>Vagas Presenciais</li>
-          <li>Vagas Remotas</li>
-        </ul>
-      </Grid>
-      <Grid item xs={12} sm={6} md={3}>
-        <Typography variant="h6" gutterBottom sx={{ color: "#FFF" }}>
-          Contato
-        </Typography>
-        <Typography variant="body2" sx={{ color: "#FFF" }}>
-          +55 81 9 9697-3442
-          <br />
-          vagacertape@gmail.com
-          <br />
-          Recife, Pernambuco
-        </Typography>
-      </Grid>
-    </Grid>
-    <Typography variant="body2" color="inherit" align="center" sx={{ mt: 4 }}>
-      © VagaCerta, 2024
-    </Typography>
-  </Container>
-</Box>
+
+      {/* Rodapé */}
+      <Box sx={{ py: 6, backgroundColor: "#005988", color: "#FFF", marginTop: "50px" }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography variant="h6" gutterBottom sx={{ color: "#FFF" }}>
+                Sobre Nós
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#FFF" }}>
+                A Vaga Certa é uma plataforma de empregos que conecta talentos às melhores oportunidades de forma ágil, confiável e acessível.
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography variant="h6" gutterBottom>
+                Empresa
+              </Typography>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
+                <li>Sobre Nós</li>
+                <li>Como Funciona?</li>
+                <li>Principais Vagas</li>
+                <li>Serviços</li>
+              </ul>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography variant="h6" gutterBottom>
+                Vagas
+              </Typography>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
+                <li>Categorias de Vagas</li>
+                <li>Vagas Presenciais</li>
+                <li>Vagas Remotas</li>
+              </ul>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography variant="h6" gutterBottom sx={{ color: "#FFF" }}>
+                Contato
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#FFF" }}>
+                +55 81 9 9697-3442
+                <br />
+                vagacertape@gmail.com
+                <br />
+                Recife, Pernambuco
+              </Typography>
+            </Grid>
+          </Grid>
+          <Typography variant="body2" color="inherit" align="center" sx={{ mt: 4 }}>
+            © VagaCerta, 2024
+          </Typography>
+        </Container>
+      </Box>
 
     </>
   );

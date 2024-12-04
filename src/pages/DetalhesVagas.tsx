@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -19,10 +19,8 @@ import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import TimerIcon from "@mui/icons-material/Timer";
 import LayersSharpIcon from "@mui/icons-material/LayersSharp";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import SchoolIcon from "@mui/icons-material/School";
 import LinkIcon from "@mui/icons-material/Link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -30,6 +28,15 @@ import EmailSharpIcon from "@mui/icons-material/EmailSharp";
 import styles from "./home.module.css";
 
 const DetalhesVagas: React.FC = () => {
+
+  const location = useLocation();
+  const vaga = location.state;
+
+  if (!vaga) {
+    return <div>Vaga não encontrada.</div>;
+  }
+  console.log("Página Detalhe da Vaga");
+  console.log(vaga)
   return (
     <>
       {/* Barra de navegação */}
@@ -85,7 +92,7 @@ const DetalhesVagas: React.FC = () => {
               <FacebookSharpIcon sx={{ fontSize: 80, color: "#1877f2" }} />
               <Box>
                 <Typography variant="h5" fontWeight="bold">
-                  Senior UX Designer
+                  {vaga.titulo}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Typography variant="body1" color="text.secondary">
@@ -111,63 +118,9 @@ const DetalhesVagas: React.FC = () => {
                 Descrição da Vaga
               </Typography>
               <Typography variant="body1" color="text.secondary" paragraph>
-                A Velstar é uma agência parceira da Shopify Plus, e colaboramos com marcas para
-                ajudá-las a crescer. E fazemos o mesmo com nosso time! 🚀
-              </Typography>
-              <Typography variant="body1" color="text.secondary" paragraph>
-                Na Velstar, não criamos apenas sites, desenvolvemos experiências digitais
-                excepcionais que os consumidores adoram. Nosso time de designers, desenvolvedores,
-                estrategistas e criativos trabalha em conjunto para levar marcas ao próximo nível.<br></br>
-                Desde migração de plataformas, design de experiência e interface do usuário até marketing digital, tenos um histórico comprovado de entrega de soluções de eCommerce exepcionais e impulsionamos as vendas para nossos clientes.🚀
+                {vaga.descricao}
               </Typography>
 
-              <Typography variant="body1" color="text.secondary" paragraph>
-                A função envolve traduzir especificações de projetos em código limpo, orientado a testes e de fácil manutenção. Você colaborará com as equipes de projetos e Desenvolvimento, bem como atendam aos requisitos funcionais e não funcionais.<br></br>
-                Você terá a oportunidade de criar recursos novos, inovadores, seguros e escaláveis para nossos clientes na plataforma shopify. <br></br>  Quer trabalhar conosco? Você estará em boa companhia🚀
-              </Typography>
-
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
-                Requisitos
-              </Typography>
-              <Typography variant="body1" color="text.secondary" paragraph>
-              • Excelentes habilidades de troubleshooting e análise, combinadas com a determinação de enfrentar desafios de forma proativa. <br />
-              • Mais de 3 anos de experiência em desenvolvimento back-end, trabalhando com múltiplos projetos menores simultaneamente ou com aplicações de grande escala. <br />
-              • Experiência com HTML, JavaScript, CSS, PHP, e frameworks como Symfony e/ou Laravel! <br />
-              • Experiência regular com APls e Web Services (REST, GraphQL, SOAP, etc.). <br />
-              • Experiência ou conhecimento em desenvolvimento ágil de aplicações, software comercial pronto para uso, middleware, servidores, armazenamento e gerenciamento de banco de
-              dados. <br />
-              • Familiaridade com sistemas de controle de versão e gerenciamento de projetos (ex.: Github,Jira) <br />
-              • Excelentes habilidades de troubleshooting e análise, combinadas com a determinação de enfrentar desafios de forma proativa. <br />
-              • Ambição e desejo de crescimento profissional em uma agência em rápido desenvolvimento.
-
-              </Typography>
-
-
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
-                Desejável
-              </Typography>
-                
-              <Typography variant="body1" color="text.secondary" paragraph>
-              • Conhecimento prático em plataformas de eCommerce, preferencialmente Shopify, mas também outras como Magento, WooCommerce e Visualsoft, para viabilizar migrações sem interrupções. <br />
-              •  Conhecimento prático em gateways de pagamento. <br />
-              •  Experiência com plataformas de API / Desenvolvimento de APIs RESTful.
-              </Typography>
-
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
-                Beneficios
-              </Typography>
-
-              <Typography variant="body1" color="text.secondary" paragraph>
-              • Término antecipado nas sextas-teiras para nossa reunião de techamento de semana (saida as 16:30, com a bebida da sua escolha do bar) <br />
-              • 28 dias de férias (incluindo feriados), aumentando 1 dia por ano, ALÉM de um dia de folga extra no seu aniversário.<br />
-              • bônus anual generoso. <br />
-              • Plano de saúde <br />
-              • Dias comunitários pagos para voluntariar-se em uma instituição de caridade de sua escolha. <br />
-              • Contribuição de R$ 100 para seu aprendizado e sesenvolvimento pessoal <br />
-              • Café da manhã gratuito às segundas-feiras e lanches grátis no escritório. <br />
-              
-
-              </Typography>
 
 
 
@@ -201,7 +154,7 @@ const DetalhesVagas: React.FC = () => {
                   Salário (BR)
                 </Typography>
                 <Typography fontWeight="bold" color="green">
-                  R$3.700,00 - R$4.620,00
+                  R$ {vaga.salarioMinimo} - R$ {vaga.salarioMaximo}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Salário mensal
@@ -213,7 +166,7 @@ const DetalhesVagas: React.FC = () => {
                   Localização da Vaga
                 </Typography>
                 <Typography variant="body1" fontWeight="bold">
-                  Recife, Pernambuco
+                  {vaga.pais}, {vaga.cidade}
                 </Typography>
               </Box>
             </Box>
@@ -232,17 +185,12 @@ const DetalhesVagas: React.FC = () => {
                 <Box sx={{ textAlign: "center" }}>
                   <CalendarTodayIcon color="primary" />
                   <Typography>VAGA POSTADA</Typography>
-                  <Typography color="text.secondary">14 nov, 2024</Typography>
-                </Box>
-                <Box sx={{ textAlign: "center" }}>
-                  <TimerIcon color="primary" />
-                  <Typography>A VAGA EXPIRA EM</Typography>
-                  <Typography color="text.secondary">29 nov, 2024</Typography>
+                  <Typography color="text.secondary">{vaga.createdAt.split("T")[0]}</Typography>
                 </Box>
                 <Box sx={{ textAlign: "center" }}>
                   <LayersSharpIcon color="primary" />
                   <Typography>NÍVEL DA VAGA</Typography>
-                  <Typography color="text.secondary">Iniciante</Typography>
+                  <Typography color="text.secondary">{vaga.nivelTrabalho}</Typography>
                 </Box>
               </Box>
 
@@ -250,13 +198,9 @@ const DetalhesVagas: React.FC = () => {
                 <Box sx={{ textAlign: "center" }}>
                   <WalletIcon color="primary" />
                   <Typography>SALÁRIO ANUAL</Typography>
-                  <Typography color="text.secondary">R$ 45k - 55k</Typography>
+                  <Typography color="text.secondary">R$ {Number(vaga.salarioMinimo) * 12} - R$ {Number(vaga.salarioMaximo) * 12}</Typography>
                 </Box>
-                <Box sx={{ textAlign: "center" }}>
-                  <SchoolIcon color="primary" />
-                  <Typography>EDUCAÇÃO</Typography>
-                  <Typography color="text.secondary">Ensino Superior Completo</Typography>
-                </Box>
+
               </Box>
 
               <Divider sx={{ my: 2 }} />
