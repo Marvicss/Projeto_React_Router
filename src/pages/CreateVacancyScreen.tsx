@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
-import "./../styles/PostarVaga.css";
+import "./CreateVacancyScreen.css"
+import AppBarDefault from "../components/AppBarDefault";
 
 // Definição do tipo para os dados do formulário
 interface FormData {
@@ -70,120 +71,127 @@ const PostarVaga: React.FC = () => {
     };
 
     return (
-        <div className="postar-vaga-container">
-            <h1>Publicar a vaga</h1>
-            <p>Encontre os melhores talentos para sua empresa</p>
-            <form className="vaga-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Título da vaga</label>
-                    <input
-                        type="text"
-                        name="titulo"
-                        placeholder="Adicione um titulo"
-                        value={formData.titulo}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Tags</label>
-                    <input
-                        type="text"
-                        name="tags"
-                        placeholder="Palavra-chave da vaga, tags etc."
-                        value={formData.tags}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Cargo</label>
-                    <input
-                        type="text"
-                        name="cargo"
-                        placeholder="Informe o cargo"
-                        value={formData.cargo}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-row">
+        <div>
+
+
+            <AppBarDefault></AppBarDefault>
+
+
+            <div className="postar-vaga-container">
+                <h1>Publicar a vaga</h1>
+                <p>Encontre os melhores talentos para sua empresa</p>
+                <form className="vaga-form" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>Salário Mínimo</label>
+                        <label>Título da vaga</label>
                         <input
                             type="text"
-                            name="salarioMinimo"
-                            placeholder="Salário Mínimo"
-                            value={formData.salarioMinimo}
+                            name="titulo"
+                            placeholder="Adicione um titulo"
+                            value={formData.titulo}
                             onChange={handleChange}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Salário Máximo</label>
+                        <label>Tags</label>
                         <input
                             type="text"
-                            name="salarioMaximo"
-                            placeholder="Salário Máximo"
-                            value={formData.salarioMaximo}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
-                <div className="form-row">
-                    <div className="form-group">
-                        <label>Vagas</label>
-                        <input
-                            type="text"
-                            name="vagas"
-                            placeholder="Número de vagas"
-                            value={formData.vagas}
+                            name="tags"
+                            placeholder="Palavra-chave da vaga, tags etc."
+                            value={formData.tags}
                             onChange={handleChange}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Nível de trabalho</label>
+                        <label>Cargo</label>
                         <input
                             type="text"
-                            name="nivelTrabalho"
-                            placeholder="Nível de trabalho"
-                            value={formData.nivelTrabalho}
+                            name="cargo"
+                            placeholder="Informe o cargo"
+                            value={formData.cargo}
                             onChange={handleChange}
                         />
                     </div>
-                </div>
-                <div className="form-row">
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label>Salário Mínimo</label>
+                            <input
+                                type="text"
+                                name="salarioMinimo"
+                                placeholder="Salário Mínimo"
+                                value={formData.salarioMinimo}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Salário Máximo</label>
+                            <input
+                                type="text"
+                                name="salarioMaximo"
+                                placeholder="Salário Máximo"
+                                value={formData.salarioMaximo}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label>Vagas</label>
+                            <input
+                                type="text"
+                                name="vagas"
+                                placeholder="Número de vagas"
+                                value={formData.vagas}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Nível de trabalho</label>
+                            <input
+                                type="text"
+                                name="nivelTrabalho"
+                                placeholder="Nível de trabalho"
+                                value={formData.nivelTrabalho}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label>País</label>
+                            <input
+                                type="text"
+                                name="pais"
+                                placeholder="Informe o país"
+                                value={formData.pais}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Cidade</label>
+                            <input
+                                type="text"
+                                name="cidade"
+                                placeholder="Informe a cidade"
+                                value={formData.cidade}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
                     <div className="form-group">
-                        <label>País</label>
-                        <input
-                            type="text"
-                            name="pais"
-                            placeholder="Informe o país"
-                            value={formData.pais}
+                        <label>Descrição da Vaga</label>
+                        <textarea
+                            name="descricao"
+                            placeholder="Adicione a descrição..."
+                            value={formData.descricao}
                             onChange={handleChange}
-                        />
+                        ></textarea>
                     </div>
-                    <div className="form-group">
-                        <label>Cidade</label>
-                        <input
-                            type="text"
-                            name="cidade"
-                            placeholder="Informe a cidade"
-                            value={formData.cidade}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label>Descrição da Vaga</label>
-                    <textarea
-                        name="descricao"
-                        placeholder="Adicione a descrição..."
-                        value={formData.descricao}
-                        onChange={handleChange}
-                    ></textarea>
-                </div>
-                <button type="submit" className="publicar-btn">
-                    Publicar vaga
-                </button>
-            </form>
-            {mensagem && <p className="mensagem">{mensagem}</p>}
+                    <button type="submit" className="publicar-btn">
+                        Publicar vaga
+                    </button>
+                </form>
+                {mensagem && <p className="mensagem">{mensagem}</p>}
+            </div>
         </div>
     );
 };

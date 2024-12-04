@@ -8,6 +8,7 @@ import Vagas from './pages/Vagas';
 import DetalhesVagas from './pages/DetalhesVagas';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import ResetPassword from './pages/Auth/ResetPassword';
+import PostarVaga from './pages/CreateVacancyScreen';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         {/* Novas rotas */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/postar-vaga" element={<PostarVaga />} />
       </Routes>
     </Router>
   );
