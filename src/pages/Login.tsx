@@ -9,9 +9,17 @@ import {
 import { FormEvent } from 'react';
 import Parse from '../config/parseConfig';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../redux/slices/userSlice';
+import { AppDispatch } from '../store/store';
+
+
 
 function Login() {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch<AppDispatch>();
+
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,6 +30,9 @@ function Login() {
 
     try {
       await Parse.User.logIn(email, password);
+
+      dispatch(setUser(email));
+
       alert('Login realizado com sucesso!');
       navigate('/');
     } catch (error: any) {

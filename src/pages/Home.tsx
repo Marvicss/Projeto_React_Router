@@ -2,8 +2,26 @@ import React from "react";
 import { AppBar, Toolbar, Typography, Button, Box, Container, TextField, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import styles from './home.module.css';
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { clearUser } from '../redux/slices/userSlice';
+import { RootState } from '../store/store'
+
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Seleciona o estado do usuário
+  const user = useSelector((state: RootState) => state.user);
+
+  const handleLogout = () => {
+    dispatch(clearUser()); // Limpa o estado do usuário
+    navigate('/login'); // Redireciona para a página de login
+  };
+
+
+
   return (
     <>
            {/* Navbar */}
@@ -20,10 +38,10 @@ const Home: React.FC = () => {
         textDecoration: "none",
         color: "inherit",
         padding: "8px 16px",
-      borderRadius: "4px",
-      fontWeight: "bold",
-      transition: "box-shadow 0.3s",
-      boxShadow: "none",
+        borderRadius: "4px",
+        fontWeight: "bold",
+        transition: "box-shadow 0.3s",
+        boxShadow: "none",
       
       }}
       >
@@ -33,6 +51,21 @@ const Home: React.FC = () => {
       </Link>
       <Button color="inherit">Empresas</Button>
       <Button color="inherit">Contato</Button>
+
+      {/* Verificação de usuário logado */}
+      {user ? (
+            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {/* Exemplo de um link de "Sair" (Logout) */}
+              <Button
+                color="inherit"
+                onClick={handleLogout} // A função de logout
+                sx={{ fontWeight: "bold", marginTop: 0.5 }}
+              >
+                Sair
+              </Button>
+            </Box>
+
+      ):
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         {/* Link "Entrar" estilizado */}
         <Link
@@ -68,6 +101,7 @@ const Home: React.FC = () => {
           Cadastrar-se
         </Link>
       </Box>
+    } 
     </Box>
   </Toolbar>
 </AppBar>
@@ -117,7 +151,7 @@ const Home: React.FC = () => {
         <Typography variant="h5" fontWeight="bold" gutterBottom>
           Missão
         </Typography>
-        <Typography fontSize="0.95rem">
+        <Typography fontSize="0.95rem" >
           Conectar talentos a oportunidades, facilitando processos e contribuindo para o sucesso de candidatos e empresas.
         </Typography>
       </Grid>
