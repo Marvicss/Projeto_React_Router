@@ -49,6 +49,23 @@ const Home: React.FC = () => {
 
 
             </Link>
+
+            <Link to="/postar-vaga"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                fontWeight: "bold",
+                transition: "box-shadow 0.3s",
+                boxShadow: "none",
+
+              }}
+            >
+              CRIAR VAGA
+
+
+            </Link>
             <Button color="inherit">Empresas</Button>
             <Button color="inherit">Contato</Button>
 
