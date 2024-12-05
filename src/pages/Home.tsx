@@ -67,7 +67,7 @@ const Home: React.FC = () => {
 
             </Link>
             <Button color="inherit">Empresas</Button>
-            <Button color="inherit">Contato</Button>
+            <Button color="inherit">Sobre</Button>
 
             {/* Verificação de usuário logado */}
             {user ? (
