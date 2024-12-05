@@ -210,59 +210,81 @@ const Home: React.FC = () => {
       </Box>
 
 
-      {/* Vagas em Destaque */}
-      <Box sx={{ backgroundColor: "#F9F9F9", py: 6 }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: "center", mb: 4 }}>
-            <Typography variant="h4" gutterBottom>
-              Vagas em Destaque
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              Veja as vagas que mais fazem sucesso
-            </Typography>
+     {/* Vagas em Destaque */}
+<Box sx={{ backgroundColor: "#F9F9F9", py: 6 }}>
+  <Container maxWidth="lg">
+    <Box sx={{ textAlign: "center", mb: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Vagas em Destaque
+      </Typography>
+      <Typography variant="body1" color="text.secondary">
+        Veja as vagas que mais fazem sucesso
+      </Typography>
+    </Box>
+    <Grid container spacing={4}>
+      {[
+        {
+          id: 1,
+          title: "Social Mídia",
+          location: "Recife",
+          type: "Presencial",
+          image: "/vaga-1.jpg",
+        },
+        {
+          id: 2,
+          title: "Programação",
+          location: "São Paulo",
+          type: "Híbrido",
+          image: "/vaga-2.jpg",
+        },
+        {
+          id: 3,
+          title: "Engenheiro",
+          location: "Porto Alegre",
+          type: "Presencial",
+          image: "/vaga-3.jpg",
+        },
+      ].map((vaga) => (
+        <Grid item xs={12} sm={6} md={4} key={vaga.id}>
+          <Box
+            sx={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "8px",
+              overflow: "hidden",
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+            }}
+          >
+            <Box
+              component="img"
+              src={vaga.image}
+              alt={`Vaga ${vaga.id}`}
+              sx={{
+                width: "100%",
+                height: "140px",
+                objectFit: "cover",
+              }}
+            />
+            <Box sx={{ p: 2, flexGrow: 1 }}>
+              <Typography variant="h6" gutterBottom>
+                {vaga.title}
+              </Typography>
+              <Typography color="text.secondary">Local: {vaga.location}</Typography>
+              <Typography color="text.secondary">Tipo: {vaga.type}</Typography>
+            </Box>
+            <Box sx={{ p: 2, textAlign: "center" }}>
+              <Button variant="contained" size="small" sx={{ width: "100%" }}>
+                Candidatar-se
+              </Button>
+            </Box>
           </Box>
-          <Grid container spacing={4}>
-            {[1, 2, 3].map((card) => (
-              <Grid item xs={12} sm={6} md={4} key={card}>
-                <Box
-                  sx={{
-                    backgroundColor: "#FFFFFF",
-                    borderRadius: "8px",
-                    overflow: "hidden",
-                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "100%",
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={`/vaga-${card}.jpg`}
-                    alt={`Vaga ${card}`}
-                    sx={{
-                      width: "100%",
-                      height: "140px",
-                      objectFit: "cover",
-                    }}
-                  />
-                  <Box sx={{ p: 2, flexGrow: 1 }}>
-                    <Typography variant="h6" gutterBottom>
-                      Título da Vaga
-                    </Typography>
-                    <Typography color="text.secondary">Local: Recife</Typography>
-                    <Typography color="text.secondary">Tipo: Presencial</Typography>
-                  </Box>
-                  <Box sx={{ p: 2, textAlign: "center" }}>
-                    <Button variant="contained" size="small" sx={{ width: "100%" }}>
-                      Candidatar-se
-                    </Button>
-                  </Box>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+        </Grid>
+      ))}
+    </Grid>
+  </Container>
+</Box>
 
 
       {/* "Seja Certeiro na Vaga" */}
@@ -312,30 +334,61 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* Cursos Gratuitos */}
-      <Box sx={{ backgroundColor: "white", py: 8 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" align="center" gutterBottom>
-            Cursos Gratuitos
-          </Typography>
-          <Typography variant="body1" align="center" color="text.secondary" gutterBottom>
-            Parceiro com cursos gratuitos em diversas plataformas.
-          </Typography>
-          <Grid container spacing={3}>
-            {[1, 2, 3].map((course) => (
-              <Grid item xs={12} sm={6} md={4} key={course}>
-                <Card>
-                  <CardMedia component="img" height="140" image={`/curso-${course}.png`} alt="Curso em destaque" />
-                  <CardContent>
-                    <Typography variant="h6">Título do Curso</Typography>
-                    <Typography color="text.secondary">Parceiro: Nome da Plataforma</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+     {/* Cursos Gratuitos */}
+<Box sx={{ backgroundColor: "white", py: 8 }}>
+  <Container maxWidth="lg">
+    <Typography variant="h4" align="center" gutterBottom>
+      Cursos Gratuitos
+    </Typography>
+    <Typography variant="body1" align="center" color="text.secondary" gutterBottom>
+    
+    </Typography>
+    <Grid container spacing={3}>
+      {[
+        {
+          id: 1,
+          title: "Inteligência Artificial",
+          description: "Aprenda os fundamentos da IA e suas aplicações práticas.",
+       
+          image: "/curso-1.png",
+        },
+        {
+          id: 2,
+          title: "Python",
+          description: "Domine a programação em Python, ideal para iniciantes e avançados.",
+        
+          image: "/curso-2.png",
+        },
+        {
+          id: 3,
+          title: "Administração",
+          description: "Explore conceitos de gestão, liderança e organização empresarial.",
+      
+          image: "/curso-3.png",
+        },
+      ].map((course) => (
+        <Grid item xs={12} sm={6} md={4} key={course.id}>
+          <Card>
+            <CardMedia
+              component="img"
+              height="140"
+              image={course.image}
+              alt={course.title}
+            />
+            <CardContent>
+              <Typography variant="h6">{course.title}</Typography>
+              <Typography color="text.secondary">
+                {course.description}
+              </Typography>
+              
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  </Container>
+</Box>
+
 
       {/* Empresas Parceiras */}
       <Box sx={{ py: 4, textAlign: "center", backgroundColor: "#white" }}>
