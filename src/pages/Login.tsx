@@ -1,25 +1,22 @@
-import Header from '../components/Header';
 import {
   Box,
   Typography,
   TextField,
   Button,
   Stack,
+  Toolbar,
+  AppBar,
 } from '@mui/material';
 import { FormEvent } from 'react';
-import Parse from '../config/parseConfig';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/slices/userSlice';
 import { AppDispatch } from '../store/store';
-
-
+import { Link } from 'react-router-dom'; // Import necessário para Links
 
 function Login() {
   const navigate = useNavigate();
-
   const dispatch = useDispatch<AppDispatch>();
-
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -42,12 +39,44 @@ function Login() {
   };
 
   const handleForgotPassword = () => {
-    navigate('/forgot-password'); 
+    navigate('/forgot-password');
   };
 
   return (
     <>
-      <Header />
+      {/* Navbar */}
+      <AppBar position="static" color="transparent" elevation={0} sx={{padding: 0, margin: 0}}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box>
+            <img src="/logo.png" alt="Logo" style={{ height: "7rem", width: "10rem" }} />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+           
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Home</Link>
+            <Link to="/Vagas" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Vagas</Link>
+            <Link to="/postar-vaga" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Criar Vaga</Link>
+            <Link to="/about" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Sobre</Link>
+            <Link
+              to="/login"
+              style={{
+                textDecoration: 'none',
+                backgroundColor: '#005988',
+                color: '#FFFFFF',
+                fontWeight: 'bold',
+                padding: '8px 24px',
+                borderRadius: '20px',
+                transition: 'background-color 0.3s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#003F63")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#005988")}
+            >
+              Entrar
+            </Link>
+          </Box>
+        </Toolbar>
+      </AppBar>
+
+      {/* Tela de Login */}
       <Box
         sx={{
           display: 'flex',
@@ -57,31 +86,31 @@ function Login() {
         }}
       >
         {/* Parte Esquerda */}
-        <Box
-          sx={{
-            backgroundColor: '#005988',
-            color: 'white',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            padding: '2rem',
-            flex: 1,
-            marginTop: "4rem"
-          }}
-        >
-          <img
-            src="logo-login.svg"
-            alt="Logo Vaga Certa"
-            style={{ width: '500px', marginBottom: '2px' }}
-          />
-          <Typography variant="h4" gutterBottom>
-            Bem-vindo <br /> de volta!
-          </Typography>
-          <Typography variant="body1" align="center" color='white'>
-            Acesse sua conta agora <br /> mesmo.
-          </Typography>
-        </Box>
+<Box
+  sx={{
+    backgroundColor: '#005988',
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center', // Centraliza verticalmente
+    alignItems: 'center',
+    padding: '2rem',
+    height: '100vh', // Adicionado para ocupar 100% da altura da tela
+    flex: 1,
+  }}
+>
+  <img
+    src="logo-login.svg"
+    alt="Logo Vaga Certa"
+    style={{ width: '500px', marginBottom: '2px' }}
+  />
+  <Typography variant="h4" gutterBottom>
+    Bem-vindo <br /> de volta!
+  </Typography>
+  <Typography variant="body1" align="center" color="white">
+    Acesse sua conta agora <br /> mesmo.
+  </Typography>
+</Box>
 
         {/* Parte Direita */}
         <Box
@@ -91,7 +120,7 @@ function Login() {
             justifyContent: 'center',
             flex: 1,
             backgroundColor: '#f9f9f9',
-            padding: '2rem', // Padding ajustado para melhorar o espaçamento
+            padding: '2rem',
           }}
         >
           <Box
@@ -104,7 +133,7 @@ function Login() {
               alignItems: 'center',
               width: '100%',
               maxWidth: '450px',
-              padding: '0 1rem', // Controle de padding interno
+              padding: '0 1rem',
             }}
             onSubmit={handleSubmit}
           >
@@ -153,7 +182,7 @@ function Login() {
               <Button
                 variant="text"
                 color="primary"
-                onClick={handleForgotPassword} // Chamando a função para redirecionar
+                onClick={handleForgotPassword}
                 sx={{ textTransform: 'none', fontWeight: 400 }}
               >
                 Esqueci minha senha
