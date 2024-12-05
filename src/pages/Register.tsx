@@ -1,11 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
   TextField,
   Button,
   Stack,
+  AppBar,
+  Toolbar,
 } from '@mui/material';
 import { FormEvent } from 'react';
 import Parse from '../config/parseConfig';
@@ -39,7 +40,6 @@ function Register() {
       await user.signUp();
       alert('Usuário registrado com sucesso!');
       navigate('/login');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Erro ao registrar usuário:', error);
       alert('Erro ao registrar usuário: ' + error.message);
@@ -48,7 +48,36 @@ function Register() {
 
   return (
     <>
-      <Header />
+      {/* Navbar */}
+      <AppBar position="static" color="transparent" elevation={0} sx={{ padding: 0, margin: 0 }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box>
+            <img src="/logo.png" alt="Logo" style={{ height: "7rem", width: "10rem" }} />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Home</Link>
+            <Link to="/Vagas" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Vagas</Link>
+            <Link to="/postar-vaga" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Criar Vaga</Link>
+            <Link to="/about" style={{ textDecoration: 'none', color: 'inherit', padding: '8px 16px', borderRadius: '4px', fontWeight: 'bold' }}>Sobre</Link>
+            <Link
+              to="/login"
+              style={{
+                textDecoration: 'none',
+                backgroundColor: '#005988',
+                color: '#FFFFFF',
+                fontWeight: 'bold',
+                padding: '8px 24px',
+                borderRadius: '20px',
+                transition: 'background-color 0.3s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#003F63")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#005988")}
+            >
+              Entrar
+            </Link>
+          </Box>
+        </Toolbar>
+      </AppBar>
       <Box
         sx={{
           display: 'flex',
@@ -64,11 +93,11 @@ function Register() {
             color: 'white',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
             alignItems: 'center',
             padding: '2rem',
+            height: '100vh',  
             flex: 1,
-            marginTop: "4rem"
           }}
         >
           <img
@@ -182,3 +211,4 @@ function Register() {
 }
 
 export default Register;
+  
