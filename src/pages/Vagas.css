@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.listar-vagas-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.listar-vagas-container h1 {
+    font-size: 32px;
+    color: #005988; 
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.grid-vagas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.vaga-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.vaga-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.vaga-card h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #005988; 
+    font-weight: 500;
+}
+
+.vaga-card p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    color: #005988; 
+    font-weight: 500;
+}
+
+.ver-detalhes-btn {
+    background-color: #005988; 
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 180px;
+    text-decoration: none; 
+}
+
+.ver-detalhes-btn:hover {
+    background-color: #003f66; 
+    transform: scale(1.05);
+}
+
+
+.remover-vaga-btn {
+    background-color: #ff4d4d;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 180px;
+}
+
+.remover-vaga-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+.buttons-line {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .grid-vagas {
+        grid-template-columns: 1fr; 
+    }
+}
