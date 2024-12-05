@@ -21,7 +21,7 @@ body {
 .postar-vaga-container h1 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #003366;
+    color: #005988; /* Cor azul ajustada */
 }
 
 .postar-vaga-container p {
@@ -34,7 +34,7 @@ body {
 .vaga-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px; 
 }
 
 /* Grupos de formulário */
@@ -52,7 +52,7 @@ body {
 .form-group input,
 .form-group textarea {
     font-size: 14px;
-    padding: 10px;
+    padding: 8px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
@@ -60,14 +60,14 @@ body {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+    border-color: #005988; 
+    box-shadow: 0 0 4px rgba(0, 89, 136, 0.3); 
 }
 
 /* Campos lado a lado */
 .form-row {
     display: flex;
-    gap: 20px;
+    gap: 16px; 
 }
 
 .form-row .form-group {
@@ -76,10 +76,10 @@ body {
 
 /* Botão de publicar */
 .publicar-btn {
-    background-color: #003366;
+    background-color: #005988; 
     color: #fff;
     font-size: 16px;
-    padding: 12px;
+    padding: 10px; 
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -87,7 +87,7 @@ body {
 }
 
 .publicar-btn:hover {
-    background-color: #0055aa;
+    background-color: #0074aa; 
 }
 
 /* Mensagem de feedback */

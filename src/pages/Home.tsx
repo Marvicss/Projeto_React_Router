@@ -167,24 +167,22 @@ const Home: React.FC = () => {
 
       {/* Missão, Visão e Valores */}
       <Box sx={{ backgroundColor: "#005988", py: 4, display: "flex", justifyContent: "center" }}>
-        <Container
-          sx={{
-            backgroundColor: "#005988",
-            color: "white",
-            borderRadius: 3,
-            width: "100%", // Ajusta para ocupar todo o espaço permitido pelo Container
-            maxWidth: "900px", // Define a largura máxima desejada
-            padding: 3, // Espaçamento interno
-          }}
-        >
+        <Container sx={{
+          backgroundColor: "#005988",
+          color: "white",
+          borderRadius: 3,
+          width: "100%",
+          maxWidth: "900px",
+          padding: 3,
+        }}>
           <Grid container spacing={3} alignItems="center">
             {/* Missão */}
             <Grid item xs={12} sm={4} textAlign="center">
               <Typography variant="h5" fontWeight="bold" gutterBottom>
                 Missão
               </Typography>
-              <Typography fontSize="0.95rem" >
-                Conectar talentos a oportunidades, facilitando processos e contribuindo para o sucesso de candidatos e empresas.
+              <Typography fontSize="0.95rem" color="white">
+                Conectar talentos às oportunidades, promovendo o crescimento profissional e o sucesso das empresas.
               </Typography>
             </Grid>
 
@@ -193,8 +191,8 @@ const Home: React.FC = () => {
               <Typography variant="h5" fontWeight="bold" gutterBottom>
                 Visão
               </Typography>
-              <Typography fontSize="0.95rem">
-                Ser a plataforma de empregos mais confiável e reconhecida, promovendo o crescimento de profissionais e empresas.
+              <Typography fontSize="0.95rem" color="white">
+                Ser a plataforma mais confiável e inovadora no mercado de recrutamento, reconhecida pelo impacto positivo no desenvolvimento de profissionais e organizações.
               </Typography>
             </Grid>
 
@@ -203,13 +201,14 @@ const Home: React.FC = () => {
               <Typography variant="h5" fontWeight="bold" gutterBottom>
                 Valores
               </Typography>
-              <Typography fontSize="0.95rem" component="div">
-                • Qualidade <br />• Inovação <br />• Ética e Transparência <br />• Sucesso do cliente
+              <Typography fontSize="0.95rem" color="white">
+                • Inovação <br />• Ética <br />• Comprometimento com o sucesso <br />• Transparência
               </Typography>
             </Grid>
           </Grid>
         </Container>
       </Box>
+
 
       {/* Vagas em Destaque */}
       <Box sx={{ backgroundColor: "#F9F9F9", py: 6 }}>
