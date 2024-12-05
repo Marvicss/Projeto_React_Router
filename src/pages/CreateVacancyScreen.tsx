@@ -2,9 +2,11 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import "./CreateVacancyScreen.css"
 import AppBarDefault from "../components/AppBarDefault";
+import FooterDefault from "../components/FooterDefault";
 
 // Definição do tipo para os dados do formulário
 interface FormData {
+    objectId: string;
     titulo: string;
     tags: string;
     cargo: string;
@@ -20,6 +22,7 @@ interface FormData {
 const PostarVaga: React.FC = () => {
     // Estado para armazenar os dados do formulário
     const [formData, setFormData] = useState<FormData>({
+        objectId: "",
         titulo: "",
         tags: "",
         cargo: "",
@@ -40,7 +43,7 @@ const PostarVaga: React.FC = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    // Função para enviar os dados do formulário para a API
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -56,17 +59,28 @@ const PostarVaga: React.FC = () => {
                 }
             };
 
-            // Faz a requisição POST para a API
+
             const response = await axios.post(url, formData, config);
 
-            if (response.status == 201) {
-                //redireciona usuário para tela inicial
-            }
-            setMensagem("Vaga publicada com sucesso!"); // Exibe mensagem de sucesso
-            console.log(response.data); // Exibe a resposta no console
+
+            setMensagem("Vaga publicada com sucesso!");
+            setFormData({
+                objectId: "",
+                titulo: "",
+                tags: "",
+                cargo: "",
+                salarioMinimo: "",
+                salarioMaximo: "",
+                vagas: "",
+                nivelTrabalho: "",
+                pais: "",
+                cidade: "",
+                descricao: "",
+            })
+            console.log(response.data);
         } catch (error) {
             console.error("Erro ao publicar a vaga:", error);
-            setMensagem("Erro ao publicar a vaga. Tente novamente."); // Exibe mensagem de erro
+            setMensagem("Erro ao publicar a vaga. Tente novamente.");
         }
     };
 
@@ -89,6 +103,7 @@ const PostarVaga: React.FC = () => {
                             placeholder="Adicione um titulo"
                             value={formData.titulo}
                             onChange={handleChange}
+
                         />
                     </div>
                     <div className="form-group">
@@ -192,6 +207,8 @@ const PostarVaga: React.FC = () => {
                 </form>
                 {mensagem && <p className="mensagem">{mensagem}</p>}
             </div>
+
+            <FooterDefault></FooterDefault>
         </div>
     );
 };
