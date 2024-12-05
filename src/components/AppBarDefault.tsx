@@ -7,7 +7,6 @@ import {
     AppBar,
     Toolbar,
     Box,
-    Button,
 } from "@mui/material";
 
 function AppBarDefault() {
@@ -30,7 +29,7 @@ function AppBarDefault() {
 
                         }}
                     >
-                        HOME
+                        Home
 
 
                     </Link>
@@ -47,7 +46,7 @@ function AppBarDefault() {
 
                         }}
                     >
-                        VAGAS
+                        Vagas
 
 
                     </Link>
@@ -63,12 +62,27 @@ function AppBarDefault() {
 
                         }}
                     >
-                        CRIAR VAGA
+                        Criar Vaga
 
 
                     </Link>
-                    <Button color="inherit">Empresas</Button>
-                    <Button color="inherit">Contato</Button>
+
+                    <Link to="/about"
+                        style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                            padding: "8px 16px",
+                            borderRadius: "4px",
+                            fontWeight: "bold",
+                            transition: "box-shadow 0.3s",
+                            boxShadow: "none",
+
+                        }}
+                    >
+                        Sobre
+
+
+                    </Link>
 
                 </Box>
             </Toolbar>

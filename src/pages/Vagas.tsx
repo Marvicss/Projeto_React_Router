@@ -47,6 +47,26 @@ export function Vagas() {
     fetchVagas();
   }, []);
 
+  const handleRemoveVaga = async (objectId: string) => {
+    try {
+      const config = {
+        headers: {
+          "X-Parse-Application-Id": "gP4FXe8g4TGqobelhZpaTPK4GJUVijNv5P4WQt9P",
+          "X-Parse-REST-API-Key": "Efa3c9ISbjKMqgBPPczHI6WDWxbE26ahY3TwBaug",
+          "Content-Type": "application/json",
+        },
+      };
+
+      await axios.delete(`https://parseapi.back4app.com/classes/vagas/${objectId}`, config);
+
+      setVagas((prevVagas) => prevVagas.filter((vaga) => vaga.objectId !== objectId));
+      alert("Vaga removida com sucesso!");
+    } catch (error) {
+      console.error("Erro ao remover a vaga:", error);
+      alert("Erro ao tentar remover a vaga.");
+    }
+  };
+
   if (loading) {
     return <div className="loading">Carregando vagas...</div>;
   }
@@ -67,15 +87,22 @@ export function Vagas() {
               </p>
               <p>R$ {vaga.salarioMinimo} - R$ {vaga.salarioMaximo}</p>
               <p>Vagas Disponiveis : {vaga.vagas}</p>
-              <Link
-                to="/detalhesvagas"
-                state={vaga}
-                className="ver-detalhes-btn"
-                text-decoration="none"
+              <div className="buttons-line">
+                <Link
+                  to="/detalhesvagas"
+                  state={vaga}
+                  className="ver-detalhes-btn"
+                  text-decoration="none"
 
-              >
-                Ver Detalhes
-              </Link>
+                >
+                  Ver Detalhes
+                </Link>
+                <button
+                  className="remover-vaga-btn"
+                  onClick={() => { handleRemoveVaga(vaga.objectId) }}
+                >Remover</button>
+              </div>
+
             </div>
           ))}
         </div>

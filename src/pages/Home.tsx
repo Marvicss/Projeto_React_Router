@@ -45,7 +45,7 @@ const Home: React.FC = () => {
 
               }}
             >
-              VAGAS
+              Vagas
 
 
             </Link>
@@ -62,12 +62,27 @@ const Home: React.FC = () => {
 
               }}
             >
-              CRIAR VAGA
+              Criar Vaga
 
 
             </Link>
-            <Button color="inherit">Empresas</Button>
-            <Button color="inherit">Sobre</Button>
+
+            <Link to="/about"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                fontWeight: "bold",
+                transition: "box-shadow 0.3s",
+                boxShadow: "none",
+
+              }}
+            >
+              Sobre
+
+
+            </Link>
 
             {/* Verificação de usuário logado */}
             {user ? (
