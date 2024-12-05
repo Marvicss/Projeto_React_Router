@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/slices/userSlice';
 import { AppDispatch } from '../store/store';
 import { Link } from 'react-router-dom'; // Import necessário para Links
+import Parse from '../config/parseConfig';
 
 function Login() {
   const navigate = useNavigate();
@@ -72,6 +73,20 @@ function Login() {
             >
               Entrar
             </Link>
+
+            {/* Link "Cadastrar-se" */}
+            <Link
+                  to="/register"
+                  style={{
+                    marginTop: "8px",
+                    fontSize: "14px",
+                    textDecoration: "none",
+                    color: "#005988",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Cadastrar-se
+                </Link>
           </Box>
         </Toolbar>
       </AppBar>

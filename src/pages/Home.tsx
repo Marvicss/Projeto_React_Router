@@ -31,7 +31,22 @@ const Home: React.FC = () => {
             <img src="/logo.png" alt="Logo" style={{ height: "7rem", width: "10rem" }} />
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Button color="inherit">Home</Button>
+          <Link to="/"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                fontWeight: "bold",
+                transition: "box-shadow 0.3s",
+                boxShadow: "none",
+
+              }}
+            >
+              Home
+
+
+            </Link>
 
             <Link to="/Vagas"
               style={{
