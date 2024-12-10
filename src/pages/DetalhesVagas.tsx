@@ -18,7 +18,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import LayersSharpIcon from "@mui/icons-material/LayersSharp";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import LinkIcon from "@mui/icons-material/Link";
@@ -92,7 +91,7 @@ const DetalhesVagas: React.FC = () => {
               <FacebookSharpIcon sx={{ fontSize: 80, color: "#1877f2" }} />
               <Box>
                 <Typography variant="h5" fontWeight="bold">
-                  {vaga.titulo}
+                  {vaga.title}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Typography variant="body1" color="text.secondary">
@@ -118,7 +117,19 @@ const DetalhesVagas: React.FC = () => {
                 Descrição da Vaga
               </Typography>
               <Typography variant="body1" color="text.secondary" paragraph>
-                {vaga.descricao}
+                {vaga.description}
+              </Typography>
+
+
+
+
+            </Box>
+            <Box sx={{ marginTop: 3 }}>
+              <Typography variant="h6" fontWeight="bold" gutterBottom>
+                Requisito da vaga
+              </Typography>
+              <Typography variant="body1" color="text.secondary" paragraph>
+                {vaga.requirements}
               </Typography>
 
 
@@ -154,7 +165,7 @@ const DetalhesVagas: React.FC = () => {
                   Salário (BR)
                 </Typography>
                 <Typography fontWeight="bold" color="green">
-                  R$ {vaga.salarioMinimo} - R$ {vaga.salarioMaximo}
+                  R$ {vaga.salary}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Salário mensal
@@ -166,7 +177,7 @@ const DetalhesVagas: React.FC = () => {
                   Localização da Vaga
                 </Typography>
                 <Typography variant="body1" fontWeight="bold">
-                  {vaga.pais}, {vaga.cidade}
+                  {vaga.localization}
                 </Typography>
               </Box>
             </Box>
@@ -183,14 +194,9 @@ const DetalhesVagas: React.FC = () => {
             >
               <Box sx={{ display: "flex", gap: 1, marginBottom: 2 }}>
                 <Box sx={{ textAlign: "center" }}>
-                  <CalendarTodayIcon color="primary" />
-                  <Typography>VAGA POSTADA</Typography>
-                  <Typography color="text.secondary">{vaga.createdAt.split("T")[0]}</Typography>
-                </Box>
-                <Box sx={{ textAlign: "center" }}>
                   <LayersSharpIcon color="primary" />
-                  <Typography>NÍVEL DA VAGA</Typography>
-                  <Typography color="text.secondary">{vaga.nivelTrabalho}</Typography>
+                  <Typography>CARGA HORARIA</Typography>
+                  <Typography color="text.secondary">{vaga.workload}</Typography>
                 </Box>
               </Box>
 
@@ -198,7 +204,7 @@ const DetalhesVagas: React.FC = () => {
                 <Box sx={{ textAlign: "center" }}>
                   <WalletIcon color="primary" />
                   <Typography>SALÁRIO ANUAL</Typography>
-                  <Typography color="text.secondary">R$ {Number(vaga.salarioMinimo) * 12} - R$ {Number(vaga.salarioMaximo) * 12}</Typography>
+                  <Typography color="text.secondary">R$ {vaga.salary * 12}</Typography>
                 </Box>
 
               </Box>

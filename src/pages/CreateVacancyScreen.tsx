@@ -6,33 +6,30 @@ import FooterDefault from "../components/FooterDefault";
 
 // Definição do tipo para os dados do formulário
 interface FormData {
-    objectId: string;
-    titulo: string;
-    tags: string;
-    cargo: string;
-    salarioMinimo: string;
-    salarioMaximo: string;
-    vagas: string;
-    nivelTrabalho: string;
-    pais: string;
-    cidade: string;
-    descricao: string;
+    id?: number;
+    title: string;
+    description: string;
+    requirements: string;
+    localization: string;
+    workload: number;
+    salary: number;
+    status: boolean;
+    amount: number;
+    position: string
 }
 
 const PostarVaga: React.FC = () => {
     // Estado para armazenar os dados do formulário
     const [formData, setFormData] = useState<FormData>({
-        objectId: "",
-        titulo: "",
-        tags: "",
-        cargo: "",
-        salarioMinimo: "",
-        salarioMaximo: "",
-        vagas: "",
-        nivelTrabalho: "",
-        pais: "",
-        cidade: "",
-        descricao: "",
+        title: '',
+        description: '',
+        requirements: '',
+        localization: '',
+        workload: 0,
+        salary: 0,
+        status: true,
+        amount: 0,
+        position: '',
     });
 
     const [mensagem, setMensagem] = useState<string>(""); // Mensagem de feedback para o usuário
@@ -49,33 +46,24 @@ const PostarVaga: React.FC = () => {
 
         try {
 
-            const url = "https://parseapi.back4app.com/classes/vagas"
-
-            const config = {
-                headers: {
-                    "X-Parse-Application-Id": "gP4FXe8g4TGqobelhZpaTPK4GJUVijNv5P4WQt9P",
-                    "X-Parse-REST-API-Key": "Efa3c9ISbjKMqgBPPczHI6WDWxbE26ahY3TwBaug",
-                    "Content-Type": "application/json"
-                }
-            };
+            const url = "//localhost:8080/vacancy/";
 
 
-            const response = await axios.post(url, formData, config);
+            console.log(formData)
+            const response = await axios.post(url, formData);
 
 
             setMensagem("Vaga publicada com sucesso!");
             setFormData({
-                objectId: "",
-                titulo: "",
-                tags: "",
-                cargo: "",
-                salarioMinimo: "",
-                salarioMaximo: "",
-                vagas: "",
-                nivelTrabalho: "",
-                pais: "",
-                cidade: "",
-                descricao: "",
+                title: '',
+                description: '',
+                requirements: '',
+                localization: '',
+                workload: 0,
+                salary: 0,
+                status: true,
+                amount: 0,
+                position: '',
             })
             console.log(response.data);
         } catch (error) {
@@ -99,30 +87,20 @@ const PostarVaga: React.FC = () => {
                         <label>Título da vaga</label>
                         <input
                             type="text"
-                            name="titulo"
+                            name="title"
                             placeholder="Adicione um titulo"
-                            value={formData.titulo}
+                            value={formData.title}
                             onChange={handleChange}
 
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Tags</label>
-                        <input
-                            type="text"
-                            name="tags"
-                            placeholder="Palavra-chave da vaga, tags etc."
-                            value={formData.tags}
-                            onChange={handleChange}
                         />
                     </div>
                     <div className="form-group">
                         <label>Cargo</label>
                         <input
                             type="text"
-                            name="cargo"
+                            name="position"
                             placeholder="Informe o cargo"
-                            value={formData.cargo}
+                            value={formData.position}
                             onChange={handleChange}
                         />
                     </div>
@@ -131,19 +109,9 @@ const PostarVaga: React.FC = () => {
                             <label>Salário Mínimo</label>
                             <input
                                 type="text"
-                                name="salarioMinimo"
-                                placeholder="Salário Mínimo"
-                                value={formData.salarioMinimo}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Salário Máximo</label>
-                            <input
-                                type="text"
-                                name="salarioMaximo"
-                                placeholder="Salário Máximo"
-                                value={formData.salarioMaximo}
+                                name="salary"
+                                placeholder="Salário"
+                                value={formData.salary}
                                 onChange={handleChange}
                             />
                         </div>
@@ -153,9 +121,9 @@ const PostarVaga: React.FC = () => {
                             <label>Vagas</label>
                             <input
                                 type="text"
-                                name="vagas"
+                                name="amount"
                                 placeholder="Número de vagas"
-                                value={formData.vagas}
+                                value={formData.amount}
                                 onChange={handleChange}
                             />
                         </div>
@@ -163,9 +131,9 @@ const PostarVaga: React.FC = () => {
                             <label>Nível de trabalho</label>
                             <input
                                 type="text"
-                                name="nivelTrabalho"
+                                name="workload"
                                 placeholder="Nível de trabalho"
-                                value={formData.nivelTrabalho}
+                                value={formData.workload}
                                 onChange={handleChange}
                             />
                         </div>
@@ -175,19 +143,9 @@ const PostarVaga: React.FC = () => {
                             <label>País</label>
                             <input
                                 type="text"
-                                name="pais"
-                                placeholder="Informe o país"
-                                value={formData.pais}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Cidade</label>
-                            <input
-                                type="text"
-                                name="cidade"
-                                placeholder="Informe a cidade"
-                                value={formData.cidade}
+                                name="localization"
+                                placeholder="Informe a localização"
+                                value={formData.localization}
                                 onChange={handleChange}
                             />
                         </div>
@@ -195,9 +153,18 @@ const PostarVaga: React.FC = () => {
                     <div className="form-group">
                         <label>Descrição da Vaga</label>
                         <textarea
-                            name="descricao"
+                            name="description"
                             placeholder="Adicione a descrição..."
-                            value={formData.descricao}
+                            value={formData.description}
+                            onChange={handleChange}
+                        ></textarea>
+                    </div>
+                    <div className="form-group">
+                        <label>Descrição da Vaga</label>
+                        <textarea
+                            name="requirements"
+                            placeholder="Adicione os requisitos..."
+                            value={formData.requirements}
                             onChange={handleChange}
                         ></textarea>
                     </div>
